@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lord · мужской барбершоп</title>
+  <!-- Tailwind via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    /* Дополнительные штрихи: плавность, тени, золотой акцент */
+    body {
+      background-color: #0b0a0a;
+      color: #e8e0d8;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      letter-spacing: 0.01em;
+    }
+    .gold {
+      color: #d4a24e;
+    }
+    .border-gold {
+      border-color: #d4a24e;
+    }
+    .bg-gold {
+      background-color: #d4a24e;
+    }
+    .hover-gold:hover {
+      color: #d4a24e;
+      transition: color 0.25s ease;
+    }
+    .card-hover {
+      transition: transform 0.25s ease, box-shadow 0.3s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 30px -10px rgba(212, 162, 78, 0.15);
+    }
+    .hero-overlay {
+      background: linear-gradient(135deg, rgba(10, 10, 10, 0.75) 0%, rgba(10, 10, 10, 0.3) 100%);
+    }
+    .star-gold {
+      color: #d4a24e;
+    }
+    .input-dark {
+      background-color: #1e1b1b;
+      border: 1px solid #3a3430;
+      color: #f0ebe6;
+      transition: border 0.2s;
+    }
+    .input-dark:focus {
+      border-color: #d4a24e;
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(212, 162, 78, 0.2);
+    }
+    .btn-gold {
+      background-color: #d4a24e;
+      color: #0b0a0a;
+      font-weight: 600;
+      transition: background 0.25s, transform 0.15s;
+    }
+    .btn-gold:hover {
+      background-color: #c4903a;
+      transform: scale(1.02);
+    }
+    .footer-link {
+      transition: color 0.2s;
+    }
+    .footer-link:hover {
+      color: #d4a24e;
+    }
+    /* акцент для заголовков */
+    .section-eyebrow {
+      letter-spacing: 0.2em;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      color: #b8a18a;
+    }
+    .section-title {
+      font-weight: 300;
+      letter-spacing: 0.02em;
+    }
+    .section-title span {
+      font-weight: 500;
+      color: #d4a24e;
+    }
+    /* отзывы звёзды */
+    .stars i {
+      margin-right: 2px;
+    }
+    /* фото hero — имитация фона */
+    .hero-bg {
+      background-image: url('https://images.pexels.com/photos/3998417/pexels-photo-3998417.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+      background-size: cover;
+      background-position: center 30%;
+    }
+    /* для мобильных */
+    @media (max-width: 640px) {
+      .hero-bg {
+        background-position: 40% 20%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HERO ===== -->
+  <header class="relative min-h-[90vh] flex items-center hero-bg overflow-hidden">
+    <div class="absolute inset-0 hero-overlay"></div>
+    <div class="container mx-auto px-6 md:px-12 relative z-10 text-white max-w-4xl">
+      <div class="flex items-center gap-2 text-gold uppercase tracking-[0.25em] text-xs font-light mb-4">
+        <span class="w-8 h-px bg-gold"></span>
+        <span>Est. 2012</span>
+      </div>
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-light leading-[1.1] tracking-tight">
+        <span class="gold">Lord</span><br />
+        <span class="text-white/90">барбершоп</span>
+      </h1>
+      <p class="mt-5 text-base md:text-lg text-white/70 max-w-xl font-light leading-relaxed">
+        Искусство мужского стиля. Классика, детали и безупречный сервис в атмосфере джентльменского клуба.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a href="#booking" class="btn-gold px-8 py-3 rounded-sm text-sm uppercase tracking-wider">Записаться</a>
+        <a href="#services" class="border border-white/30 hover:border-gold px-8 py-3 rounded-sm text-sm uppercase tracking-wider transition-colors">Услуги</a>
+      </div>
+      <!-- микро-статистика в hero -->
+      <div class="mt-12 flex flex-wrap gap-8 text-white/60 text-sm">
+        <div><span class="text-white font-medium">5</span> мастеров</div>
+        <div><span class="text-white font-medium">12+</span> лет опыта</div>
+        <div><span class="text-white font-medium">980+</span> клиентов</div>
+      </div>
+    </div>
+    <!-- лёгкая тень снизу -->
+    <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#0b0a0a] to-transparent"></div>
+  </header>
+
+  <!-- ===== СТАТИСТИКА ===== -->
+  <section class="py-14 md:py-20 bg-[#0f0d0d] border-t border-white/5">
+    <div class="container mx-auto px-6 md:px-12">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div>
+          <div class="text-4xl md:text-5xl font-light gold">12+</div>
+          <div class="text-xs uppercase tracking-widest text-white/40 mt-1">лет опыта</div>
+        </div>
+        <div>
+          <div class="text-4xl md:text-5xl font-light gold">980</div>
+          <div class="text-xs uppercase tracking-widest text-white/40 mt-1">довольных клиентов</div>
+        </div>
+        <div>
+          <div class="text-4xl md:text-5xl font-light gold">5</div>
+          <div class="text-xs uppercase tracking-widest text-white/40 mt-1">топ-мастеров</div>
+        </div>
+        <div>
+          <div class="text-4xl md:text-5xl font-light gold">4.9</div>
+          <div class="text-xs uppercase tracking-widest text-white/40 mt-1">средний рейтинг</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== УСЛУГИ ===== -->
+  <section id="services" class="py-16 md:py-24 bg-[#0b0a0a]">
+    <div class="container mx-auto px-6 md:px-12">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <p class="section-eyebrow">—— Премиум сервис</p>
+        <h2 class="section-title text-3xl md:text-4xl mt-2">Выбери свой <span>стиль</span></h2>
+        <p class="text-white/50 text-sm mt-3 font-light">Только проверенные техники и лучшие продукты для безупречного результата</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Карточка 1 -->
+        <div class="bg-[#161212] p-6 rounded-sm border border-white/5 card-hover">
+          <div class="text-gold text-3xl mb-4"><i class="fas fa-cut"></i></div>
+          <h3 class="text-lg font-medium text-white/90">Стрижка + борода</h3>
+          <p class="text-white/50 text-sm mt-2 leading-relaxed">Мужская стрижка с моделированием бороды и усов. Идеальный контур.</p>
+          <div class="mt-4 text-gold text-sm font-semibold">от 2500 ₽</div>
+        </div>
+        <!-- Карточка 2 -->
+        <div class="bg-[#161212] p-6 rounded-sm border border-white/5 card-hover">
+          <div class="text-gold text-3xl mb-4"><i class="fas fa-leaf"></i></div>
+          <h3 class="text-lg font-medium text-white/90">Уход за лицом</h3>
+          <p class="text-white/50 text-sm mt-2 leading-relaxed">Глубокое очищение, маски, тонизирование — свежий вид и здоровая кожа.</p>
+          <div class="mt-4 text-gold text-sm font-semibold">от 1900 ₽</div>
+        </div>
+        <!-- Карточка 3 -->
+        <div class="bg-[#161212] p-6 rounded-sm border border-white/5 card-hover">
+          <div class="text-gold text-3xl mb-4"><i class="fas fa-razor"></i></div>
+          <h3 class="text-lg font-medium text-white/90">Бритьё опасной бритвой</h3>
+          <p class="text-white/50 text-sm mt-2 leading-relaxed">Идеально гладкая кожа, ритуал с горячим полотенцем и маслами.</p>
+          <div class="mt-4 text-gold text-sm font-semibold">от 1800 ₽</div>
+        </div>
+        <!-- Карточка 4 -->
+        <div class="bg-[#161212] p-6 rounded-sm border border-white/5 card-hover">
+          <div class="text-gold text-3xl mb-4"><i class="fas fa-crown"></i></div>
+          <h3 class="text-lg font-medium text-white/90">Премиум пакет</h3>
+          <p class="text-white/50 text-sm mt-2 leading-relaxed">Стрижка, борода, уход за лицом, бритьё — полный образ за один визит.</p>
+          <div class="mt-4 text-gold text-sm font-semibold">от 5500 ₽</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ОТЗЫВЫ ===== -->
+  <section class="py-16 md:py-24 bg-[#0f0d0d] border-t border-white/5">
+    <div class="container mx-auto px-6 md:px-12">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <p class="section-eyebrow">—— Отзывы</p>
+        <h2 class="section-title text-3xl md:text-4xl mt-2">Говорят <span>клиенты</span></h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- отзыв 1 -->
+        <div class="bg-[#161212] p-6 rounded-sm border border-white/5">
+          <div class="flex stars text-gold text-sm mb-2">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="text-white/80 text-sm leading-relaxed">«Лучшая стрижка в городе. Мастер учёл все пожелания, атмосфера — отдельный кайф. Вернусь обязательно.»</p>
+          <div class="mt-4 flex items-center gap-3">
+            <span class="w-8 h-8 rounded-full bg-gold/20 flex items-center justify-center text-gold text-xs font-bold">АК</span>
+            <div><span class="text-white/90 text-sm font-medium">Алексей К.</span><div class="text-white/30 text-xs">постоянный клиент</div></div>
+          </div>
+        </div>
+        <!-- отзыв 2 -->
+        <div class="bg-[#161212] p-6 rounded-sm border border-white/5">
+          <div class="flex stars text-gold text-sm mb-2">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="text-white/80 text-sm leading-relaxed">«Идеальное бритьё, такого уровня профессионализма я не встречал. Рекомендую всем друзьям.»</p>
+          <div class="mt-4 flex items-center gap-3">
+            <span class="w-8 h-8 rounded-full bg-gold/20 flex items-center justify-center text-gold text-xs font-bold">ДМ</span>
+            <div><span class="text-white/90 text-sm font-medium">Дмитрий М.</span><div class="text-white/30 text-xs">бизнес-класс</div></div>
+          </div>
+        </div>
+        <!-- отзыв 3 -->
+        <div class="bg-[#161212] p-6 rounded-sm border border-white/5">
+          <div class="flex stars text-gold text-sm mb-2">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="text-white/80 text-sm leading-relaxed">«Премиум пакет — это вау! Полный релакс, уход и стиль. Чувствую себя новым человеком.»</p>
+          <div class="mt-4 flex items-center gap-3">
+            <span class="w-8 h-8 rounded-full bg-gold/20 flex items-center justify-center text-gold text-xs font-bold">ИГ</span>
+            <div><span class="text-white/90 text-sm font-medium">Игорь Г.</span><div class="text-white/30 text-xs">первый раз</div></div>
+          </div>
+        </div>
+        <!-- отзыв 4 -->
+        <div class="bg-[#161212] p-6 rounded-sm border border-white/5">
+          <div class="flex stars text-gold text-sm mb-2">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="text-white/80 text-sm leading-relaxed">«Очень внимательные мастера, интерьер и музыка создают настроение. Спасибо команде Lord!»</p>
+          <div class="mt-4 flex items-center gap-3">
+            <span class="w-8 h-8 rounded-full bg-gold/20 flex items-center justify-center text-gold text-xs font-bold">АВ</span>
+            <div><span class="text-white/90 text-sm font-medium">Артём В.</span><div class="text-white/30 text-xs">регулярно</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ФОРМА ЗАПИСИ ===== -->
+  <section id="booking" class="py-16 md:py-24 bg-[#0b0a0a] border-t border-white/5">
+    <div class="container mx-auto px-6 md:px-12 max-w-3xl">
+      <div class="text-center mb-12">
+        <p class="section-eyebrow">—— Запись</p>
+        <h2 class="section-title text-3xl md:text-4xl mt-2">Онлайн-<span>бронирование</span></h2>
+        <p class="text-white/50 text-sm mt-2">Оставь заявку, и мы подберём удобное время</p>
+      </div>
+      <form class="bg-[#161212] p-8 md:p-10 rounded-sm border border-white/5 space-y-5">
+        <div class="grid md:grid-cols-2 gap-5">
+          <div>
+            <label class="block text-white/60 text-xs uppercase tracking-wider mb-1">Имя</label>
+            <input type="text" placeholder="Александр" class="w-full input-dark rounded-sm px-4 py-3 text-sm" />
+          </div>
+          <div>
+            <label class="block text-white/60 text-xs uppercase tracking-wider mb-1">Телефон</label>
+            <input type="tel" placeholder="+7 (999) 123-45-67" class="w-full input-dark rounded-sm px-4 py-3 text-sm" />
+          </div>
+        </div>
+        <div>
+          <label class="block text-white/60 text-xs uppercase tracking-wider mb-1">Услуга</label>
+          <select class="w-full input-dark rounded-sm px-4 py-3 text-sm appearance-none">
+            <option value="">Выберите услугу</option>
+            <option>Стрижка + борода</option>
+            <option>Уход за лицом</option>
+            <option>Бритьё опасной бритвой</option>
+            <option>Премиум пакет</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-white/60 text-xs uppercase tracking-wider mb-1">Желаемая дата</label>
+          <input type="date" class="w-full input-dark rounded-sm px-4 py-3 text-sm" />
+        </div>
+        <button type="submit" class="btn-gold w-full py-4 rounded-sm text-sm uppercase tracking-widest transition">Отправить заявку</button>
+        <p class="text-white/30 text-xs text-center">Мы свяжемся с вами в течение 15 минут</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== ФУТЕР ===== -->
+  <footer class="bg-[#0a0909] border-t border-white/5 py-12">
+    <div class="container mx-auto px-6 md:px-12">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+        <div class="flex items-center gap-2">
+          <span class="text-2xl font-light gold">Lord</span>
+          <span class="text-white/20 text-sm uppercase tracking-widest">· барбершоп</span>
+        </div>
+        <div class="flex flex-wrap gap-6 text-white/50 text-sm">
+          <a href="#" class="footer-link"><i class="fas fa-map-pin mr-2 gold"></i>ул. Тверская, 12</a>
+          <a href="#" class="footer-link"><i class="fas fa-phone-alt mr-2 gold"></i>+7 (495) 555-77-88</a>
+          <a href="#" class="footer-link"><i class="fas fa-envelope mr-2 gold"></i>info@lord.ru</a>
+        </div>
+        <div class="flex gap-4 text-white/30 text-lg">
+          <a href="#" class="hover-gold"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="hover-gold"><i class="fab fa-telegram-plane"></i></a>
+          <a href="#" class="hover-gold"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="text-white/10 text-[0.65rem] uppercase tracking-widest text-center mt-8 border-t border-white/5 pt-6">
+        © Lord · мужской барбершоп 2026
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
